@@ -1,6 +1,6 @@
-
 import React from 'react';
 import Navbar from '../components/Navbar';
+import Footer from '../components/Footer';
 import { Building, Users, Shield, MessageSquare, CreditCard, Calendar } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import {
@@ -156,6 +156,8 @@ const Index = () => {
           </div>
         </div>
       </section>
+
+      <Footer />
     </div>
   );
 };
