@@ -17,15 +17,23 @@ const Navbar = () => {
 
   return (
     <nav
-      className={`fixed w-full z-50 transition-all duration-300 ${
-        isScrolled ? 'bg-white/80 backdrop-blur-md shadow-md' : 'bg-transparent'
+      className={`fixed w-full z-50 transition-all duration-500 ${
+        isScrolled ? 'bg-white/90 backdrop-blur-md shadow-lg' : 'bg-transparent'
       }`}
     >
       <div className="container mx-auto px-4">
-        <div className="flex items-center justify-between h-16">
+        <div className="flex items-center justify-between h-20">
           <div className="flex-shrink-0">
-            <a href="#" className="text-2xl font-bold text-amodDark-800">
-              Amod <span className="text-amodBlue-600">Griha</span>
+            <a 
+              href="#" 
+              className="text-2xl font-bold text-amodDark-800 flex items-center space-x-2 group"
+            >
+              <span className="bg-amodBlue-600 text-white px-3 py-1 rounded transform group-hover:scale-105 transition-transform duration-300">
+                AMOD
+              </span>
+              <span className="text-amodBlue-600 group-hover:text-amodBlue-700 transition-colors duration-300">
+                GRIHA
+              </span>
             </a>
           </div>
 
@@ -40,10 +48,15 @@ const Navbar = () => {
           </div>
 
           <div className="hidden md:flex items-center space-x-4">
-            <Button variant="outline" className="hover:bg-amodBlue-50">
+            <Button 
+              variant="outline" 
+              className="hover:bg-amodBlue-50 transform hover:scale-105 transition-all duration-300"
+            >
               Login
             </Button>
-            <Button className="bg-amodBlue-600 hover:bg-amodBlue-700">
+            <Button 
+              className="bg-amodBlue-600 hover:bg-amodBlue-700 transform hover:scale-105 transition-all duration-300"
+            >
               Sign Up
             </Button>
           </div>
@@ -52,7 +65,7 @@ const Navbar = () => {
           <div className="md:hidden">
             <button
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-              className="text-amodDark-800 hover:text-amodBlue-600 transition-colors"
+              className="text-amodDark-800 hover:text-amodBlue-600 transition-colors p-2 rounded-lg hover:bg-amodBlue-50"
             >
               {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
             </button>
@@ -61,7 +74,7 @@ const Navbar = () => {
 
         {/* Mobile Menu */}
         {isMobileMenuOpen && (
-          <div className="md:hidden bg-white/95 backdrop-blur-md border-t">
+          <div className="md:hidden bg-white/95 backdrop-blur-md border-t animate-fadeIn">
             <div className="px-2 pt-2 pb-3 space-y-1">
               <MobileNavLink href="#home">Home</MobileNavLink>
               <MobileNavLink href="#about">About Us</MobileNavLink>
@@ -88,16 +101,17 @@ const Navbar = () => {
 const NavLink = ({ href, children }: { href: string; children: React.ReactNode }) => (
   <a
     href={href}
-    className="text-amodDark-800 hover:text-amodBlue-600 transition-colors duration-200 relative after:content-[''] after:absolute after:w-full after:scale-x-0 after:h-0.5 after:bottom-0 after:left-0 after:bg-amodBlue-600 after:origin-bottom-right after:transition-transform after:duration-300 hover:after:scale-x-100 hover:after:origin-bottom-left"
+    className="text-amodDark-800 hover:text-amodBlue-600 transition-all duration-300 relative group py-2"
   >
-    {children}
+    <span className="relative z-10">{children}</span>
+    <span className="absolute bottom-0 left-0 w-full h-0.5 bg-amodBlue-600 transform scale-x-0 transition-transform duration-300 origin-left group-hover:scale-x-100"></span>
   </a>
 );
 
 const MobileNavLink = ({ href, children }: { href: string; children: React.ReactNode }) => (
   <a
     href={href}
-    className="block px-3 py-2 text-base font-medium text-amodDark-800 hover:text-amodBlue-600 hover:bg-amodBlue-50 rounded-md transition-colors duration-200"
+    className="block px-3 py-2 text-base font-medium text-amodDark-800 hover:text-amodBlue-600 hover:bg-amodBlue-50 rounded-md transition-all duration-300"
   >
     {children}
   </a>

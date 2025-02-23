@@ -1,7 +1,7 @@
 import React from 'react';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
-import { Building, Users, Shield, MessageSquare, CreditCard, Calendar } from 'lucide-react';
+import { Building, Users, Shield, MessageSquare, CreditCard, Calendar, Key, Bell, Home, Settings, BookOpen, BarChart } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import {
   Accordion,
@@ -16,26 +16,89 @@ const Index = () => {
       <Navbar />
       
       {/* Hero Section */}
-      <section id="home" className="relative min-h-screen flex items-center justify-center bg-gradient-to-b from-white to-amodBlue-50 pt-16">
-        <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1487958449943-2429e8be8625')] bg-cover bg-center opacity-10"></div>
+      <section id="home" className="relative min-h-screen flex items-center justify-center bg-gradient-to-br from-white via-amodBlue-50 to-white pt-16 overflow-hidden">
+        <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1487958449943-2429e8be8625')] bg-cover bg-center opacity-5"></div>
+        <div className="absolute inset-0 overflow-hidden">
+          <div className="absolute top-20 left-10 w-64 h-64 bg-amodBlue-500 rounded-full mix-blend-multiply filter blur-xl opacity-20 animate-blob"></div>
+          <div className="absolute top-40 right-10 w-64 h-64 bg-amodBlue-300 rounded-full mix-blend-multiply filter blur-xl opacity-20 animate-blob animation-delay-2000"></div>
+          <div className="absolute -bottom-8 left-20 w-64 h-64 bg-amodBlue-400 rounded-full mix-blend-multiply filter blur-xl opacity-20 animate-blob animation-delay-4000"></div>
+        </div>
         <div className="container mx-auto px-4 z-10">
-          <div className="max-w-4xl mx-auto text-center animate-fadeIn">
-            <h1 className="text-5xl md:text-6xl font-bold text-amodDark-800 mb-6">
-              Streamline Your Apartment Management with{' '}
-              <span className="text-amodBlue-600">Amod Griha</span>
-            </h1>
-            <p className="text-xl text-amodDark-600 mb-8">
-              A cutting-edge platform designed for hassle‐free residential community management.
-              From seamless administration to enhanced security and a connected community experience.
-            </p>
-            <div className="flex flex-col sm:flex-row justify-center gap-4">
-              <Button size="lg" className="bg-amodBlue-600 hover:bg-amodBlue-700">
-                Get Started
-              </Button>
-              <Button size="lg" variant="outline" className="hover:bg-amodBlue-50">
-                Learn More
-              </Button>
+          <div className="max-w-4xl mx-auto text-center">
+            <div className="animate-fadeIn">
+              <span className="inline-block px-4 py-1 mb-6 text-sm font-semibold text-amodBlue-600 bg-amodBlue-50 rounded-full">
+                Smart Community Management
+              </span>
+              <h1 className="text-5xl md:text-6xl font-bold text-amodDark-800 mb-6 leading-tight">
+                Streamline Your Apartment Management with{' '}
+                <span className="text-amodBlue-600 relative">
+                  Amod Griha
+                  <span className="absolute bottom-0 left-0 w-full h-1 bg-amodBlue-600 transform scale-x-0 transition-transform duration-300 group-hover:scale-x-100"></span>
+                </span>
+              </h1>
+              <p className="text-xl text-amodDark-600 mb-8 leading-relaxed">
+                Experience the future of residential community management with our cutting-edge platform.
+                From seamless administration to enhanced security, we've revolutionized community living.
+              </p>
+              <div className="flex flex-col sm:flex-row justify-center gap-4">
+                <Button size="lg" className="bg-amodBlue-600 hover:bg-amodBlue-700 transform hover:scale-105 transition-all duration-300">
+                  Get Started
+                </Button>
+                <Button size="lg" variant="outline" className="hover:bg-amodBlue-50 transform hover:scale-105 transition-all duration-300">
+                  Watch Demo
+                </Button>
+              </div>
             </div>
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mt-16 animate-fadeIn animation-delay-500">
+              <StatItem number="50+" label="Societies" />
+              <StatItem number="10k+" label="Users" />
+              <StatItem number="98%" label="Satisfaction" />
+              <StatItem number="24/7" label="Support" />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Features Section */}
+      <section id="features" className="py-20 bg-gradient-to-b from-white to-amodBlue-50">
+        <div className="container mx-auto px-4">
+          <div className="text-center max-w-3xl mx-auto mb-16">
+            <h2 className="text-3xl font-bold text-amodDark-800 mb-4">Powerful Features</h2>
+            <p className="text-amodDark-600">
+              Experience a comprehensive suite of tools designed to streamline every aspect of residential community management.
+            </p>
+          </div>
+          <div className="grid md:grid-cols-3 gap-8">
+            <FeatureCard
+              icon={<Building className="w-8 h-8 text-amodBlue-600" />}
+              title="Society Management"
+              description="Streamline administrative tasks, manage documents, and handle maintenance requests efficiently."
+            />
+            <FeatureCard
+              icon={<Users className="w-8 h-8 text-amodBlue-600" />}
+              title="Community Portal"
+              description="Foster community engagement with events, notices, and a dedicated discussion forum."
+            />
+            <FeatureCard
+              icon={<Shield className="w-8 h-8 text-amodBlue-600" />}
+              title="Security Suite"
+              description="Enhanced security with visitor management, surveillance integration, and emergency alerts."
+            />
+            <FeatureCard
+              icon={<Bell className="w-8 h-8 text-amodBlue-600" />}
+              title="Smart Notifications"
+              description="Stay updated with real-time alerts for important announcements and events."
+            />
+            <FeatureCard
+              icon={<CreditCard className="w-8 h-8 text-amodBlue-600" />}
+              title="Payment Management"
+              description="Seamless payment processing for maintenance fees and other charges."
+            />
+            <FeatureCard
+              icon={<BookOpen className="w-8 h-8 text-amodBlue-600" />}
+              title="Digital Directory"
+              description="Maintain a comprehensive directory of residents and service providers."
+            />
           </div>
         </div>
       </section>
@@ -64,30 +127,6 @@ const Index = () => {
                 />
               </div>
             </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Features Section */}
-      <section id="features" className="py-20 bg-amodBlue-50">
-        <div className="container mx-auto px-4">
-          <h2 className="text-3xl font-bold text-center text-amodDark-800 mb-12">Features</h2>
-          <div className="grid md:grid-cols-3 gap-8">
-            <FeatureCard
-              icon={<Building className="w-8 h-8 text-amodBlue-600" />}
-              title="Secretary Management"
-              description="Digital logs, maintenance scheduling, and administrative tools for efficient management."
-            />
-            <FeatureCard
-              icon={<Users className="w-8 h-8 text-amodBlue-600" />}
-              title="Tenant Portal"
-              description="Community updates, service requests, and convenient payment solutions."
-            />
-            <FeatureCard
-              icon={<Shield className="w-8 h-8 text-amodBlue-600" />}
-              title="Security Features"
-              description="Real-time surveillance, visitor verification, and emergency alerts."
-            />
           </div>
         </div>
       </section>
@@ -162,13 +201,24 @@ const Index = () => {
   );
 };
 
+const StatItem = ({ number, label }: { number: string; label: string }) => (
+  <div className="p-4 rounded-lg backdrop-blur-sm bg-white/30 transform hover:scale-105 transition-all duration-300">
+    <div className="text-2xl md:text-3xl font-bold text-amodBlue-600 mb-1">{number}</div>
+    <div className="text-sm text-amodDark-600">{label}</div>
+  </div>
+);
+
 const FeatureCard = ({ icon, title, description }: {
   icon: React.ReactNode;
   title: string;
   description: string;
 }) => (
-  <div className="p-6 bg-white rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300 transform hover:-translate-y-1">
-    <div className="mb-4">{icon}</div>
+  <div className="p-6 bg-white rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 hover:bg-gradient-to-br hover:from-white hover:to-amodBlue-50">
+    <div className="mb-4 transform transition-transform duration-300 group-hover:scale-110">
+      <div className="w-16 h-16 rounded-lg bg-amodBlue-50 flex items-center justify-center">
+        {icon}
+      </div>
+    </div>
     <h3 className="text-xl font-semibold text-amodDark-800 mb-2">{title}</h3>
     <p className="text-amodDark-600">{description}</p>
   </div>

@@ -28,6 +28,8 @@ export default {
         amodBlue: {
           50: "#E3F2FD",
           100: "#BBDEFB",
+          300: "#64B5F6",
+          400: "#42A5F5",
           500: "#2196F3",
           600: "#1E88E5",
           700: "#1976D2",
@@ -59,12 +61,27 @@ export default {
           "0%": { transform: "scale(0.95)", opacity: "0" },
           "100%": { transform: "scale(1)", opacity: "1" },
         },
+        blob: {
+          "0%": {
+            transform: "translate(0px, 0px) scale(1)",
+          },
+          "33%": {
+            transform: "translate(30px, -50px) scale(1.1)",
+          },
+          "66%": {
+            transform: "translate(-20px, 20px) scale(0.9)",
+          },
+          "100%": {
+            transform: "translate(0px, 0px) scale(1)",
+          },
+        }
       },
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
         fadeIn: "fadeIn 0.5s ease-out",
         scaleIn: "scaleIn 0.3s ease-out",
+        blob: "blob 7s infinite",
       },
     },
   },
