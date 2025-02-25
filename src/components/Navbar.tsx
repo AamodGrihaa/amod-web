@@ -7,6 +7,8 @@ const Navbar = () => {
   const navigate = useNavigate();
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const isRegistrationPage = location.pathname === "/register-society" || location.pathname==="/login";
+  
 
   useEffect(() => {
     const handleScroll = () => {
@@ -27,7 +29,7 @@ const Navbar = () => {
       <div className="container mx-auto px-6 md:px-10">
         <div className="flex items-center justify-between h-20">
           {/* Logo with Name */}
-          <a href="#" className="flex items-center space-x-3 group">
+          <a href="/" className="flex items-center space-x-3 group">
             <img 
               src="/images/Amodgriha.png" 
               alt="Amod Griha Logo" 
@@ -37,34 +39,53 @@ const Navbar = () => {
               <span className="bg-gradient-to-r from-blue-500 to-blue-700 text-white px-3 py-1 rounded-lg shadow-md transform group-hover:scale-105 transition-transform duration-300">
                 AMOD
               </span>
-              <span className={`transition-colors duration-300 ${isScrolled ? 'text-blue-700' : 'text-white'}`}>
+              <span className={`transition-colors duration-300 ${isScrolled || isRegistrationPage ? 'text-blue-700' : 'text-white'}`}>
+
                 GRIHA
               </span>
             </span>
           </a>
-
+          {!isRegistrationPage && 
+          <>
           {/* Desktop Menu */}
           <div className="hidden md:flex space-x-8">
             <NavLink href="#home" isScrolled={isScrolled}>Home</NavLink>
             <NavLink href="#about" isScrolled={isScrolled}>About Us</NavLink>
             <NavLink href="#features" isScrolled={isScrolled}>Features</NavLink>
-            <NavLink href="#why" isScrolled={isScrolled}>Why Us</NavLink>
+            {/* <NavLink href="#why" isScrolled={isScrolled}>Why Us</NavLink> */}
             <NavLink href="#faq" isScrolled={isScrolled}>FAQ</NavLink>
             <NavLink href="#contact" isScrolled={isScrolled}>Contact</NavLink>
           </div>
+          </>
+          }
+
+          
 
           {/* Buttons */}
           <div className="hidden md:flex items-center space-x-4">
-            <Button variant="outline" className="hover:bg-blue-50 transform hover:scale-105 transition-all duration-300">
+            {!(location.pathname==='/login') && 
+            <>
+            <Button 
+            onClick={() => navigate("/login", { replace: (location.pathname==='/register-society') ? true : false })}
+
+            variant="outline" className="hover:bg-blue-50 transform hover:scale-105 transition-all duration-300">
               Login
             </Button>
-            
-            <Button 
-            onClick={() => navigate("/register-society")} // Navigate to the registration page
+            </>
+            }
+
+            {!(location.pathname==='/register-society') && 
+            <>
+              <Button 
+            onClick={() => navigate("/register-society",{ replace: (location.pathname==='/login') ? true : false })} // Navigate to the registration page
             className="bg-blue-600 hover:bg-blue-700 transform hover:scale-105 transition-all duration-300"
             >
             Enroll for Society
             </Button>
+            </>
+            }
+            
+            
           </div>
 
           {/* Mobile Menu Button */}

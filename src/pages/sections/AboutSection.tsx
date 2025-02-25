@@ -15,9 +15,9 @@ const aboutCards = [
     image: "/images/card2.jpeg",
   },
   {
-    title: "Easy Management",
+    title: "Cost Effective management",
     description:
-      "Easily manage monthly maintenance fees, bill payments, and financial transactions, reducing manual effort and errors.",
+      "Efficiently manage society operations while reducing costs and minimizing manual effort. ",
     image: "/images/card3.jpeg",
   },
 ];

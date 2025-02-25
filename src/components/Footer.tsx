@@ -40,8 +40,8 @@ const Footer = () => {
             <h3 className="text-white mb-4 font-semibold">CONTACT US</h3>
             <ul className="space-y-2">
               <li className="text-sm">
-                <a href="mailto:hello@amodgriha.com" className="hover:text-amodBlue-500 transition-colors">
-                  hello@amodgriha.com
+                <a href="mailto:info@amodgriha.live" className="hover:text-amodBlue-500 transition-colors">
+                info@amodgriha.live
                 </a>
               </li>
               <li className="text-sm">
@@ -74,7 +74,7 @@ const Footer = () => {
                 <SocialLink href="#" icon={<Facebook size={20} />} />
                 <SocialLink href="#" icon={<Twitter size={20} />} />
                 <SocialLink href="#" icon={<Youtube size={20} />} />
-                <SocialLink href="#" icon={<Linkedin size={20} />} />
+                <SocialLink href="https://www.linkedin.com/company/amodgriha" icon={<Linkedin size={20} />} />
                 <SocialLink href="#" icon={<Link2 size={20} />} />
               </div>
             </div>

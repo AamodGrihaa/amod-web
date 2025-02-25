@@ -66,7 +66,7 @@ const Index = () => {
               />
             </div>
 
-            <div className="grid md:grid-cols-2 gap-8 bg-white rounded-2xl shadow-xl p-8 backdrop-blur-sm bg-white/50">
+            {/* <div className="grid md:grid-cols-2 gap-8 bg-white rounded-2xl shadow-xl p-8 backdrop-blur-sm bg-white/50">
               <div className="space-y-6">
                 <div>
                   <h3 className="text-2xl font-semibold text-amodDark-800 mb-2">Send us a Message</h3>
@@ -108,7 +108,7 @@ const Index = () => {
 
                 </div>
               </div>
-            </div>
+            </div> */}
           </div>
         </div>
       </section>
