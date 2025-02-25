@@ -1,8 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import { Menu, X } from 'lucide-react';
 import { Button } from './ui/button';
+import { useNavigate } from "react-router-dom";
 
 const Navbar = () => {
+  const navigate = useNavigate();
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
@@ -14,21 +16,30 @@ const Navbar = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  const closeMobileMenu = () => setIsMobileMenuOpen(false);
+
   return (
     <nav
       className={`fixed w-full z-50 transition-all duration-500 ${
-        isScrolled ? 'bg-gradient-to-r from-white/80 to-white/90 backdrop-blur-lg shadow-md' : 'bg-transparent'
+        isScrolled ? 'bg-white shadow-md backdrop-blur-lg' : 'bg-transparent'
       }`}
     >
       <div className="container mx-auto px-6 md:px-10">
         <div className="flex items-center justify-between h-20">
-          {/* Logo */}
-          <a href="#" className="text-2xl font-bold flex items-center space-x-2 group">
-            <span className="bg-gradient-to-r from-blue-500 to-blue-700 text-white px-3 py-1 rounded-lg shadow-md transform group-hover:scale-105 transition-transform duration-300">
-              AMOD
-            </span>
-            <span className="text-blue-600 group-hover:text-blue-700 transition-colors duration-300">
-              GRIHA
+          {/* Logo with Name */}
+          <a href="#" className="flex items-center space-x-3 group">
+            <img 
+              src="/images/Amodgriha.png" 
+              alt="Amod Griha Logo" 
+              className="h-10 w-10 object-cover transition-transform duration-300 transform group-hover:scale-110" 
+            />
+            <span className="text-2xl font-bold flex items-center space-x-2">
+              <span className="bg-gradient-to-r from-blue-500 to-blue-700 text-white px-3 py-1 rounded-lg shadow-md transform group-hover:scale-105 transition-transform duration-300">
+                AMOD
+              </span>
+              <span className={`transition-colors duration-300 ${isScrolled ? 'text-blue-700' : 'text-white'}`}>
+                GRIHA
+              </span>
             </span>
           </a>
 
@@ -47,8 +58,12 @@ const Navbar = () => {
             <Button variant="outline" className="hover:bg-blue-50 transform hover:scale-105 transition-all duration-300">
               Login
             </Button>
-            <Button className="bg-blue-600 hover:bg-blue-700 transform hover:scale-105 transition-all duration-300">
-              Sign Up
+            
+            <Button 
+            onClick={() => navigate("/register-society")} // Navigate to the registration page
+            className="bg-blue-600 hover:bg-blue-700 transform hover:scale-105 transition-all duration-300"
+            >
+            Enroll for Society
             </Button>
           </div>
 
@@ -65,25 +80,27 @@ const Navbar = () => {
 
         {/* Mobile Menu */}
         <div
-          className={`md:hidden bg-white/95 backdrop-blur-md border-t transition-transform duration-300 ${
+          className={`md:hidden fixed top-0 left-0 w-full h-screen bg-white/95 backdrop-blur-md border-t flex flex-col items-center justify-center transition-transform duration-300 ${
             isMobileMenuOpen ? 'translate-y-0 opacity-100' : '-translate-y-full opacity-0 pointer-events-none'
           }`}
         >
-          <div className="px-5 pt-3 pb-5 space-y-2">
-            <MobileNavLink href="#home">Home</MobileNavLink>
-            <MobileNavLink href="#about">About Us</MobileNavLink>
-            <MobileNavLink href="#features">Features</MobileNavLink>
-            <MobileNavLink href="#why">Why Us</MobileNavLink>
-            <MobileNavLink href="#faq">FAQ</MobileNavLink>
-            <MobileNavLink href="#contact">Contact</MobileNavLink>
+          <button
+            onClick={closeMobileMenu}
+            className="absolute top-5 right-5 text-gray-800 hover:text-blue-600"
+          >
+            <X size={28} />
+          </button>
+          <div className="space-y-6 text-center">
+            <MobileNavLink href="#home" closeMenu={closeMobileMenu}>Home</MobileNavLink>
+            <MobileNavLink href="#about" closeMenu={closeMobileMenu}>About Us</MobileNavLink>
+            <MobileNavLink href="#features" closeMenu={closeMobileMenu}>Features</MobileNavLink>
+            <MobileNavLink href="#why" closeMenu={closeMobileMenu}>Why Us</MobileNavLink>
+            <MobileNavLink href="#faq" closeMenu={closeMobileMenu}>FAQ</MobileNavLink>
+            <MobileNavLink href="#contact" closeMenu={closeMobileMenu}>Contact</MobileNavLink>
           </div>
-          <div className="px-5 py-4 border-t flex flex-col space-y-2">
-            <Button variant="outline" className="w-full">
-              Login
-            </Button>
-            <Button className="w-full bg-blue-600 hover:bg-blue-700">
-              Sign Up
-            </Button>
+          <div className="mt-6 space-y-3 w-4/5">
+            <Button variant="outline" className="w-full">Login</Button>
+            <Button className="w-full bg-blue-600 hover:bg-blue-700">Sign Up</Button>
           </div>
         </div>
       </div>
@@ -101,10 +118,11 @@ const NavLink = ({ href, children, isScrolled }) => (
   </a>
 );
 
-const MobileNavLink = ({ href, children }) => (
+const MobileNavLink = ({ href, children, closeMenu }) => (
   <a
     href={href}
     className="block px-4 py-2 text-lg font-medium text-gray-800 hover:text-blue-600 hover:bg-blue-50 rounded-lg transition-all duration-300"
+    onClick={closeMenu}
   >
     {children}
   </a>

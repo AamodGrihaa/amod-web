@@ -49,8 +49,8 @@ const Index = () => {
               <ContactCard 
                 icon={<Mail className="w-6 h-6" />}
                 title="Email Us"
-                content="hello@amodgriha.com"
-                link="mailto:hello@amodgriha.com"
+                content="info@amodgriha.live"
+                link="mailto:info@amodgriha.live"
               />
               {/* <ContactCard 
                 icon={<Phone className="w-6 h-6" />}
