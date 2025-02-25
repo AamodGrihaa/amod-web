@@ -7,7 +7,7 @@ const Navbar = () => {
   const navigate = useNavigate();
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const isRegistrationPage = location.pathname === "/register-society" || location.pathname==="/login";
+  const isRegistrationPage = location.pathname === "/register-society" || location.pathname==="/login"|| location.pathname==="/contact";
   
 
   useEffect(() => {

@@ -8,6 +8,7 @@ import Index from "./pages/Index";
 import NotFound from "./pages/NotFound";
 import SocietyRegistration from "./pages/SocietyReg/Signup"; // ✅ Import Society Registration Page
 import LoginPage from "./pages/SocietyReg/Login";
+import ContactPage from "./pages/contactPage/contactpage";
 const queryClient = new QueryClient();
 
 const Layout = () => {
@@ -22,6 +23,7 @@ const Layout = () => {
         <Route path="/" element={<Index />} />
         <Route path="/register-society" element={<SocietyRegistration />} />
         <Route path="/login" element={<LoginPage />} />
+        <Route path="/contact" element={<ContactPage/>}/>
         {/* Catch-all route */}
         <Route path="*" element={<NotFound />} />
       </Routes>
