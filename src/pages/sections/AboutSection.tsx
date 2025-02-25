@@ -17,7 +17,7 @@ const aboutCards = [
   {
     title: "Cost Effective management",
     description:
-      "Efficiently manage society operations while reducing costs and minimizing manual effort. ",
+      "Easily manage monthly maintenance fees, bill payments, and financial transactions, reducing manual effort and errors.",
     image: "/images/card3.jpeg",
   },
 ];
@@ -72,11 +72,11 @@ const AboutSection = () => {
                 <div
                   key={index}
                   className="min-w-full flex flex-col items-center bg-white border border-gray-200 rounded-lg shadow-sm md:flex-row md:max-w-xl hover:bg-gray-100 dark:border-gray-700 dark:bg-gray-800 dark:hover:bg-gray-700"
-                  style={{ height: "200px" }} // Increased height
+                  // Increased height
                 >
                   {/* Image Section */}
                   <img
-                    className="object-cover w-full rounded-t-lg h-48 md:h-full md:w-48 md:rounded-none md:rounded-s-lg"
+                    className="hidden md:block object-cover w-full rounded-t-lg h-48 md:h-full md:w-48 md:rounded-none md:rounded-s-lg"
                     src={card.image}
                     alt={card.title}
                   />
@@ -86,7 +86,7 @@ const AboutSection = () => {
                     <h5 className="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
                       {card.title}
                     </h5>
-                    <div className="flex flex-row justify-between p-4 leading-normal w-1/6 h-full overflow-hidden">
+                    <div className="md:block flex flex-row justify-between p-4 leading-normal w-1/6 h-full overflow-hidden ">
 
                       {card.description}
                     </div>
