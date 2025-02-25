@@ -19,9 +19,9 @@ const HeroSection = () => {
         <div className="container mx-auto px-4 z-10">
           <div className="max-w-4xl mx-auto text-center">
             <div className="animate-fadeIn">
-              <span className="inline-block px-4 py-1 mb-6 text-sm font-semibold text-amodBlue-100 bg-amodBlue-600/20 backdrop-blur-sm rounded-full border border-amodBlue-400/30">
+              {/* <span className="inline-block px-4 py-1 mb-6 text-sm font-semibold text-amodBlue-100 bg-amodBlue-600/20 backdrop-blur-sm rounded-full border border-amodBlue-400/30">
                 Smart Community Management
-              </span>
+              </span> */}
               <h1 className="text-5xl md:text-6xl font-bold text-white mb-6 leading-tight drop-shadow-lg">
                 
                 <span className="text-amodBlue-300 relative">

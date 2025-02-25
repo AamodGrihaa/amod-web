@@ -20,12 +20,12 @@ const ContactCard = ({ icon, title, content, link }: { icon: React.ReactNode; ti
             content="hello@amodgriha.com"
             link="mailto:hello@amodgriha.com"
           />
-          <ContactCard 
+          {/* <ContactCard 
             icon={<Phone className="w-6 h-6" />}
             title="Call Us"
             content="+91 98765 43210"
             link="tel:+919876543210"
-          />
+          /> */}
           <ContactCard 
             icon={<MapPin className="w-6 h-6" />}
             title="Visit Us"

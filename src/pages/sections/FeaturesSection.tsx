@@ -28,10 +28,11 @@ const FeaturesSection = () => {
               description="Enhanced security with visitor management, surveillance integration, and emergency alerts."
             />
             <FeatureCard
-              icon={<Bell className="w-8 h-8 text-amodBlue-600" />}
-              title="Smart Notifications"
-              description="Stay updated with real-time alerts for important announcements and events."
-            />
+  icon={<Bell className="w-8 h-8 text-amodBlue-600" />}
+  title="Emergency Services"
+  description="Get instant alerts and quick access to emergency contacts for urgent situations."
+/>
+
             <FeatureCard
               icon={<CreditCard className="w-8 h-8 text-amodBlue-600" />}
               title="Payment Management"

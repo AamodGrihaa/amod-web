@@ -45,24 +45,24 @@ const Index = () => {
               </p>
             </div>
 
-            <div className="grid md:grid-cols-3 gap-8 mb-12">
+            <div className="flex flex-wrap justify-center gap-8 mb-12">
               <ContactCard 
                 icon={<Mail className="w-6 h-6" />}
                 title="Email Us"
                 content="hello@amodgriha.com"
                 link="mailto:hello@amodgriha.com"
               />
-              <ContactCard 
+              {/* <ContactCard 
                 icon={<Phone className="w-6 h-6" />}
                 title="Call Us"
                 content="+91 98765 43210"
                 link="tel:+919876543210"
-              />
+              /> */}
               <ContactCard 
                 icon={<MapPin className="w-6 h-6" />}
                 title="Visit Us"
-                content="Mumbai, Maharashtra"
-                link="https://maps.google.com"
+                content="Vijaywada, Andhrapradesh"
+                link="https://g.co/kgs/MBLe5pL"
               />
             </div>
 
